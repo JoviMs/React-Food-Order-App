@@ -38,14 +38,14 @@ const Footer = () => {
             <h5 className="footer__title">Contact</h5>
             <ListGroup className="deliver__time-list">
               <ListGroupItem className=" delivery__time-item border-0 ps-0">
-                <p>Location: Altunizade Mah. Uskudar/İstanbul</p>
+                <p>Location: Kecsksmet, Hungary</p>
               </ListGroupItem>
               <ListGroupItem className=" delivery__time-item border-0 ps-0">
                 <span>Phone: 555 555 55 55</span>
               </ListGroupItem>
 
               <ListGroupItem className=" delivery__time-item border-0 ps-0">
-                <span>Email: c.eray@hotmail.com</span>
+                <span>Email: gdsyagyuda@gmail.com</span>
               </ListGroupItem>
             </ListGroup>
           </Col>
@@ -64,37 +64,34 @@ const Footer = () => {
 
         <Row className="mt-5">
           <Col lg="6" md="6">
-            <p className="copyright__text">
-              Copyright - 2023, website made by Eray Demircioglu. All Rights
-              Reserved.
-            </p>
+            <p className="copyright__text">Copyright ED All Rights Reserved.</p>
           </Col>
           <Col lg="6" md="6">
             <div className="social__links d-flex align-items-center gap-4 justify-content-end">
               <p className="m-0">Follow: </p>
               <span>
                 {" "}
-                <Link to="https://www.facebook.com/eraydmrcoglu">
+                <Link to="www.facebook.com">
                   <i class="ri-facebook-line"></i>
                 </Link>{" "}
               </span>
 
               <span>
-                <Link to="https://github.com/eraydmrcoglu">
+                <Link to="www.github.com">
                   <i class="ri-github-line"></i>
                 </Link>
               </span>
 
               <span>
                 {" "}
-                <Link to="https://www.youtube.com/channel/UCRlE1wFdJrCXGp6bblO85ig">
+                <Link to="www.youtube.com">
                   <i class="ri-youtube-line"></i>
                 </Link>{" "}
               </span>
 
               <span>
                 {" "}
-                <Link to=" https://www.linkedin.com/in/eraydmrcoglu/">
+                <Link to=" www.linkedin.com">
                   <i class="ri-linkedin-line"></i>
                 </Link>{" "}
               </span>

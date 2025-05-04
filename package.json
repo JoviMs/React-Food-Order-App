@@ -1,4 +1,6 @@
 {
+  "start": "react-scripts start",
+  "build": "set SET NODE_OPTIONS=--openssl-legacy-provider && react-scripts build",
   "name": "food-ordering-app",
   "version": "0.1.0",
   "private": true,

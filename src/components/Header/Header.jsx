@@ -23,6 +23,15 @@ const nav__links = [
     display: "Contact",
     path: "/contact",
   },
+  // Add to nav__links if you want them always visible
+  {
+    display: "Login",
+    path: "/login",
+  },
+  {
+    display: "Register",
+    path: "/register",
+  },
 ];
 const Header = () => {
   const menuRef = useRef(null);

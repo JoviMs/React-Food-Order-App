@@ -3,13 +3,33 @@ import Helmet from "../components/Helmet/Helmet";
 import CommonSection from "../components/UI/common-section/CommonSection";
 import { Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
+
 const Register = () => {
   const signupNameRef = useRef();
   const signupPasswordRef = useRef();
   const signupEmailRef = useRef();
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
+    const email = signupEmailRef.current.value;
+    const password = signupPasswordRef.current.value;
+
+    try {
+      const response = await fetch(
+        "http://localhost/react-backend/pages/register.php",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: `email=${encodeURIComponent(
+            email
+          )}&password=${encodeURIComponent(password)}`,
+        }
+      );
+      const data = await response.json();
+      alert(data.message);
+    } catch (err) {
+      alert("Registration failed. Please check your backend and try again.");
+    }
   };
 
   return (

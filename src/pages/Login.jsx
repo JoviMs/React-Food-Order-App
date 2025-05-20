@@ -3,11 +3,32 @@ import Helmet from "../components/Helmet/Helmet";
 import CommonSection from "../components/UI/common-section/CommonSection";
 import { Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
+
 const Login = () => {
-  const loginNameRef = useRef();
+  const loginEmailRef = useRef();
   const loginPasswordRef = useRef();
-  const submitHandler = (e) => {
+
+  const submitHandler = async (e) => {
     e.preventDefault();
+    const email = loginEmailRef.current.value;
+    const password = loginPasswordRef.current.value;
+
+    try {
+      const response = await fetch(
+        "http://localhost/react-backend/pages/login.php",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: `email=${encodeURIComponent(
+            email
+          )}&password=${encodeURIComponent(password)}`,
+        }
+      );
+      const data = await response.json();
+      alert(data.message);
+    } catch (err) {
+      alert("Login failed. Please check your backend and try again.");
+    }
   };
 
   return (
@@ -23,7 +44,7 @@ const Login = () => {
                     type="email"
                     placeholder="Email"
                     required
-                    ref={loginNameRef}
+                    ref={loginEmailRef}
                   />
                 </div>
                 <div className="form__group">

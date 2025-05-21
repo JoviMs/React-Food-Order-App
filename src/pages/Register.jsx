@@ -15,10 +15,10 @@ const Register = () => {
     const password = signupPasswordRef.current.value;
 
     try {
-      const response = await fetch("/api/register", {
+      const response = await fetch("/api/auth", {
         method: "POST",
-        headers: { "Content-Type": "application/json" }, // <-- send JSON
-        body: JSON.stringify({ email, password }), // <-- send JSON
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "register", email, password }),
       });
       const data = await response.json();
       alert(data.message);

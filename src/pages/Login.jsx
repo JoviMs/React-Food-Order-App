@@ -14,10 +14,10 @@ const Login = () => {
     const password = loginPasswordRef.current.value;
 
     try {
-      const response = await fetch("/api/login", {
+      const response = await fetch("/api/auth", {
         method: "POST",
-        headers: { "Content-Type": "application/json" }, // <-- send JSON
-        body: JSON.stringify({ email, password }), // <-- send JSON
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "login", email, password }),
       });
       const data = await response.json();
       alert(data.message);

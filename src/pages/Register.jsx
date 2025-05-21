@@ -15,16 +15,13 @@ const Register = () => {
     const password = signupPasswordRef.current.value;
 
     try {
-      const response = await fetch(
-        "http://localhost/react-backend/pages/register.php",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: `email=${encodeURIComponent(
-            email
-          )}&password=${encodeURIComponent(password)}`,
-        }
-      );
+      const response = await fetch("https://fmag.42web.io/pages/register.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `email=${encodeURIComponent(email)}&password=${encodeURIComponent(
+          password
+        )}`,
+      });
       const data = await response.json();
       alert(data.message);
     } catch (err) {

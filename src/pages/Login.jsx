@@ -14,12 +14,10 @@ const Login = () => {
     const password = loginPasswordRef.current.value;
 
     try {
-      const response = await fetch("https://fmag.42web.io/pages/login.php", {
+      const response = await fetch("/api/login", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: `email=${encodeURIComponent(email)}&password=${encodeURIComponent(
-          password
-        )}`,
+        headers: { "Content-Type": "application/json" }, // <-- send JSON
+        body: JSON.stringify({ email, password }), // <-- send JSON
       });
       const data = await response.json();
       alert(data.message);

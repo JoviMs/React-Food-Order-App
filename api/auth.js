@@ -4,6 +4,11 @@ export default function handler(req, res) {
   if (req.method === "POST") {
     const { action, email, password } = req.body;
 
+    // Handle logout (no email/password required)
+    if (action === "logout") {
+      return res.status(200).json({ success: true, message: "Logged out!" });
+    }
+
     if (!email || !password) {
       return res
         .status(400)

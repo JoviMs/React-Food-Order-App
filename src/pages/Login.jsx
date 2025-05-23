@@ -20,7 +20,14 @@ const Login = () => {
         body: JSON.stringify({ action: "login", email, password }),
       });
       const data = await response.json();
+      if (data.success) {
+        localStorage.setItem("isLoggedIn", "true");
+      }
       alert(data.message);
+      // Optionally redirect to home if login is successful
+      if (data.success) {
+        window.location.href = "/home";
+      }
     } catch (err) {
       alert("Login failed. Please check your backend and try again.");
     }
